@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An interactive Tower of Hanoi puzzle game.">
+  <title>Tower of Hanoi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">H</div>
+      <div>
+        <p class="eyebrow">CLASSIC PUZZLE</p>
+        <h1>Tower of Hanoi</h1>
+      </div>
+      <span class="badge">WEB GAME</span>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">THINK • PLAN • SOLVE</p>
+      <h2>Move every disk to the <span>last tower.</span></h2>
+      <p class="subtitle">Move one disk at a time. Never place a larger disk on top of a smaller one.</p>
+    </section>
+
+    <section class="controls panel" aria-label="Game controls">
+      <label for="diskCount">Number of disks</label>
+      <select id="diskCount">
+        <option value="3">3 disks</option>
+        <option value="4">4 disks</option>
+        <option value="5" selected>5 disks</option>
+        <option value="6">6 disks</option>
+        <option value="7">7 disks</option>
+        <option value="8">8 disks</option>
+      </select>
+      <button id="newGame" class="button button-primary" type="button">New game</button>
+      <button id="resetGame" class="button button-quiet" type="button">Restart</button>
+    </section>
+
+    <section class="stats" aria-label="Game statistics">
+      <div class="stat panel">
+        <span class="stat-label">MOVES</span>
+        <strong id="moves">0</strong>
+      </div>
+      <div class="stat panel">
+        <span class="stat-label">MINIMUM</span>
+        <strong id="minimum">31</strong>
+      </div>
+      <div class="stat panel">
+        <span class="stat-label">TIME</span>
+        <strong id="timer">00:00</strong>
+      </div>
+    </section>
+
+    <section class="game panel">
+      <div class="game-heading">
+        <div>
+          <p class="eyebrow">PUZZLE BOARD</p>
+          <h3>Choose a tower</h3>
+        </div>
+        <p class="hint" id="hint" aria-live="polite">Select a tower with a disk, then select its destination.</p>
+      </div>
+
+      <div class="board" id="board" aria-label="Three Tower of Hanoi pegs">
+        <button class="tower" type="button" data-tower="0" aria-label="Tower A">
+          <span class="disks" id="tower0"></span>
+          <span class="peg"></span>
+          <span class="tower-base"></span>
+          <span class="tower-name">A</span>
+        </button>
+        <button class="tower" type="button" data-tower="1" aria-label="Tower B">
+          <span class="disks" id="tower1"></span>
+          <span class="peg"></span>
+          <span class="tower-base"></span>
+          <span class="tower-name">B</span>
+        </button>
+        <button class="tower" type="button" data-tower="2" aria-label="Tower C">
+          <span class="disks" id="tower2"></span>
+          <span class="peg"></span>
+          <span class="tower-base"></span>
+          <span class="tower-name">C</span>
+        </button>
+      </div>
+
+      <div class="board-footer">
+        <span class="legend-dot"></span>
+        <span>Tap a source tower, then tap a destination tower.</span>
+      </div>
+
+      <div class="win-message" id="winMessage" hidden>
+        <div class="win-icon">✓</div>
+        <div>
+          <h3>Puzzle completed!</h3>
+          <p id="winDetails">You moved all the disks to Tower C.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>THE RULE: Only move the top disk. Larger disks must stay below smaller disks.</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
